@@ -1,0 +1,18 @@
+databases:
+  - name: toyappnoscaffolding_nella
+    databaseName: toyappnoscaffolding_nella
+    user: toyappnoscaffolding_nella_user
+
+services:
+  - type: web
+    name: toyappnoscaffolding_nella
+    env: ruby
+    buildCommand: "./bin/render-build.sh"
+    startCommand: "bundle exec puma -C config/puma.rb"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: toyappnoscaffolding_nella
+          property: connectionString
+      - key: RAILS_MASTER_KEY
+        sync: false

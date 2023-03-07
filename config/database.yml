@@ -84,6 +84,4 @@ test:
 #
 production:
   <<: *default
-  database: toy_app_no_scaffolding_production
-  username: toy_app_no_scaffolding
-  password: <%= ENV["TOY_APP_NO_SCAFFOLDING_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
