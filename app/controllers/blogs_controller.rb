@@ -12,7 +12,7 @@ class BlogsController < ApplicationController
     def create
         @blog = Blog.new(blog_params)
         if @blog.save 
-            redirect_to blogs_path
+            redirect_to blogs_path, notice: 'Blog has been created successfully.'
         else
             render :new
         end
@@ -29,7 +29,7 @@ end
 def update
     # @student = Student.find(params[:id])
     if @blog.update(blog_params)
-        redirect_to blogs_path
+        redirect_to blogs_path, notice: 'Blog has been updated successfully.'
     else
         render :edit
     end
@@ -38,7 +38,7 @@ end
 def destroy
     # @student = Student.find(params[:id])
     @blog.destroy
-    redirect_to blogs_path
+    redirect_to blogs_path, notice: 'Blog has been deleted successfully.'
 end
 
 

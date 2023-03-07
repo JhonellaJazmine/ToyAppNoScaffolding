@@ -1,7 +1,9 @@
-<h1>Listing Blogs</h1>
-<%= link_to 'New Blog',new_blog_path %>
-<%= link_to 'Back to Students',students_path %>
-<table>
+<div class="m-3">
+<p><%= notice %></p>
+<h1>Blogs</h1>
+<%= link_to 'New Blog',new_blog_path, {:class => 'btn btn-dark m-3'}%>
+<%= link_to 'Back to Students',students_path, {:class => 'btn btn-dark'} %>
+<table class="table table-hover table-dark">
     <thead>
         <tr>
         <th>Student ID:</th>
@@ -17,10 +19,11 @@
             <td><%=blog.student_id %></td>
             <td><%=blog.title %></td>
             <td><%=blog.content %></td>
-            <td><%= link_to 'View', blog %></td>
-            <td><%= link_to 'Edit', edit_blog_path(blog) %></td>
-            <td><%= link_to "Delete", blog, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %></td>
+            <td><%= link_to 'View', blog, {:class => 'btn btn-light'} %></td>
+            <td><%= link_to 'Edit', edit_blog_path(blog), {:class => 'btn btn-light'} %></td>
+            <td><%= link_to "Delete", blog, :class => 'btn btn-light', data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %></td>
             </tr>
         <% end %>
     </tbody>
 </table>
+</div>
